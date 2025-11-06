@@ -8,7 +8,7 @@ from tensorflow.keras.models import load_model
 # Load model & scaler
 rf_model = joblib.load("model_randomforest.pkl")
 lr_model = joblib.load("model_linear.pkl")
-lstm_model = load_model("model_lstm.h5")
+lstm_model = load_model("model_lstm.h5", compile=False)
 scaler = joblib.load("scaler.pkl")
 
 st.title("📈 Prediksi Harga Bitcoin (BTC)")
@@ -37,3 +37,4 @@ def predict():
 if st.button("🔮 Prediksi Harga BTC"):
     result = predict()
     st.success(f"Perkiraan Harga Bitcoin : **${result:,.2f}**")
+
